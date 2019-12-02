@@ -1,0 +1,91 @@
+{
+    "name": "laracatch/client",
+    "description": "Laracatch Client Component",
+    "keywords": [],
+    "homepage": "https://github.com/laracatch/client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aivis Silins",
+            "email": "aivis@mettle.io",
+            "homepage": "https://mettle.io",
+            "role": "Developer"
+        },
+        {
+            "name": "Maurizio Bonani",
+            "email": "maurizio@mettle.io",
+            "homepage": "https://mettle.io",
+            "role": "Developer"
+        },
+        {
+            "name": "Joshua Franks",
+            "email": "josh@mettle.io",
+            "homepage": "https://mettle.io",
+            "role": "Developer"
+        },
+        {
+            "name": "David Field",
+            "email": "david@mettle.io",
+            "homepage": "https://mettle.io",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "filp/whoops": "^2.4",
+        "illuminate/pipeline": "~5.5|~5.6|~5.7|~5.8|^6.0",
+        "illuminate/support": "~5.5.0 || ~5.6.0 || ~5.7.0 || ~5.8.0 || ^6.0",
+        "monolog/monolog": "^1.12 || ^2.0",
+        "psr/log": "^1.1",
+        "scrivo/highlight.php": "^9.15",
+        "symfony/console": "^3.4 || ^4.0",
+        "symfony/http-foundation": "~3.3|~4.1",
+        "symfony/var-dumper": "^3.4 || ^4.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "larapack/dd": "^1.1",
+        "mockery/mockery": "^1.2",
+        "orchestra/testbench": "^3.5 || ^3.6 || ^3.7 || ^3.8 || ^4.0",
+        "phpunit/phpunit": "^8.0",
+        "spatie/phpunit-snapshot-assertions": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laracatch\\Client\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laracatch\\Client\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "format": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "ui": "npm run build --prefix=ui -- --output-path=../resources/compiled"
+    },
+    "support": {
+        "issues": "https://github.com/laracatch/client/issues",
+        "source": "https://github.com/laracatch/client"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laracatch\\Client\\LaracatchServiceProvider"
+            ]
+        }
+    }
+}
