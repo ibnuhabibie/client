@@ -33,8 +33,6 @@ protected function whoopsHandler()
 
 In Laravel versions from 6.0 upwards, you will additionally have to disable the default Ignition error handler.
 
-TODO(david): how to disable ignition.
-
 ### Configuration
 
 The behaviour of Laracatch can be adjusted via the configuration file. For example, you can exclude collection of events or queries.
