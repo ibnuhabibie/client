@@ -16,7 +16,7 @@ class LaracatchEnabled
      */
     public function handle($request, Closure $next)
     {
-        if ( ! $this->enabled()) {
+        if (! $this->enabled()) {
             abort(404);
         }
 

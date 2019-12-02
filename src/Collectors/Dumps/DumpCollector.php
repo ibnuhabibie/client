@@ -32,7 +32,7 @@ class DumpCollector implements DumpCollectorContract
      */
     public function collect(Data $data): void
     {
-        if ( ! $this->app['config']->get('laracatch.collectors.dumps')) {
+        if (! $this->app['config']->get('laracatch.collectors.dumps')) {
             return;
         }
 
@@ -54,7 +54,7 @@ class DumpCollector implements DumpCollectorContract
     public function getItems(): array
     {
         return array_map(static function (Dump $dump) {
-           return $dump->toArray();
+            return $dump->toArray();
         }, $this->dumps);
     }
 

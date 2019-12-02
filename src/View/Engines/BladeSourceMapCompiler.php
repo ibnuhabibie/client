@@ -34,10 +34,8 @@ class BladeSourceMapCompiler extends BladeCompiler
     {
         $pattern = sprintf('/(@)?%s\s*(.+?)\s*%s(\r?\n)?/s', $this->contentTags[0], $this->contentTags[1]);
 
-        if (preg_match_all($pattern, $value, $matches, PREG_OFFSET_CAPTURE))
-        {
-            foreach (array_reverse($matches[0]) as $match)
-            {
+        if (preg_match_all($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
+            foreach (array_reverse($matches[0]) as $match) {
                 $value = $this->markLineNumberAtPosition($match[1], $value);
             }
         }
@@ -61,10 +59,8 @@ class BladeSourceMapCompiler extends BladeCompiler
             PREG_OFFSET_CAPTURE
         );
 
-        if ($shouldInsertLineNumbers)
-        {
-            foreach (array_reverse($matches[0]) as $match)
-            {
+        if ($shouldInsertLineNumbers) {
+            foreach (array_reverse($matches[0]) as $match) {
                 $value = $this->markLineNumberAtPosition($match[1], $value);
             }
         }
@@ -88,8 +84,7 @@ class BladeSourceMapCompiler extends BladeCompiler
 
         $line = $map[$exceptionLineNumber - $this->getExceptionLineOffset()] ?? $exceptionLineNumber;
 
-        if (preg_match('/\|---LINE:([0-9]+)---\|/m', $line, $matches))
-        {
+        if (preg_match('/\|---LINE:([0-9]+)---\|/m', $line, $matches)) {
             return $matches[1];
         }
 
@@ -123,8 +118,7 @@ class BladeSourceMapCompiler extends BladeCompiler
             version_compare(app()->version(), '5.8.0', '>=')
             and
             version_compare(app()->version(), '5.8.9', '<=')
-        )
-        {
+        ) {
             return 2;
         }
 

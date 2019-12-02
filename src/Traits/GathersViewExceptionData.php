@@ -122,7 +122,7 @@ trait GathersViewExceptionData
     {
         $viewPath = $this->getOriginalViewPath($compiledPath);
 
-        if ( ! $viewPath) {
+        if (! $viewPath) {
             return $exceptionLineNumber;
         }
 

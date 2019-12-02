@@ -75,7 +75,7 @@ class Client
         array $headers = [],
         array $arguments = []
     ): Response {
-        if ( ! \extension_loaded('curl')) {
+        if (! \extension_loaded('curl')) {
             throw new \LogicException('The "curl" extension is not installed.');
         }
 

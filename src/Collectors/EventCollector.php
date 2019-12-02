@@ -66,7 +66,7 @@ class EventCollector implements EventCollectorContract
 
                 // Format the listener to readable format
                 $listener = get_class($class) . '@' . $method;
-                // Handle closures
+            // Handle closures
             } elseif ($listener instanceof \Closure) {
                 $reflector = new \ReflectionFunction($listener);
 

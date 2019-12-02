@@ -55,11 +55,11 @@ class ShareErrorAction
      */
     protected function applyErrorFilters(array $error, array $tabs): array
     {
-        if ( ! $this->includeTab('debugTab', $tabs)) {
+        if (! $this->includeTab('debugTab', $tabs)) {
             $error['breadcrumbs'] = [];
         }
 
-        if ( ! $this->includeTab('stackTraceTab', $tabs)) {
+        if (! $this->includeTab('stackTraceTab', $tabs)) {
             $error['stacktrace'] = array_slice($error['stacktrace'], 0, 1);
         }
 
@@ -91,28 +91,30 @@ class ShareErrorAction
      */
     protected function applyContextFilters(array $errorContext, array $tabs): array
     {
-        if ( ! $this->includeTab('appTab', $tabs)) {
+        if (! $this->includeTab('appTab', $tabs)) {
             Arr::forget($errorContext, ['view', 'route']);
         }
 
-        if ( ! $this->includeTab('contextTab', $tabs)) {
-            Arr::forget($errorContext,
-                array_merge(['env', 'git', 'context'], $this->getCustomContextKeys($errorContext)));
+        if (! $this->includeTab('contextTab', $tabs)) {
+            Arr::forget(
+                $errorContext,
+                array_merge(['env', 'git', 'context'], $this->getCustomContextKeys($errorContext))
+            );
         }
 
-        if ( ! $this->includeTab('debugTab', $tabs)) {
+        if (! $this->includeTab('debugTab', $tabs)) {
             Arr::forget($errorContext, ['dumps', 'breadcrumbs', 'logs', 'events']);
         }
 
-        if ( ! $this->includeTab('queryTab', $tabs)) {
+        if (! $this->includeTab('queryTab', $tabs)) {
             Arr::forget($errorContext, 'queries');
         }
 
-        if ( ! $this->includeTab('requestTab', $tabs)) {
+        if (! $this->includeTab('requestTab', $tabs)) {
             Arr::forget($errorContext, ['request', 'request_data', 'headers', 'session', 'cookies']);
         }
 
-        if ( ! $this->includeTab('userTab', $tabs)) {
+        if (! $this->includeTab('userTab', $tabs)) {
             Arr::forget($errorContext, ['user', 'request.ip', 'request.useragent']);
         }
 

@@ -53,8 +53,11 @@ class QueryCollector implements QueryCollectorContract
     protected function format(QueryExecuted $queryExecuted): array
     {
         return [
-            'sql' => $this->bindings ? Str::replaceArray('?', $queryExecuted->bindings,
-                $queryExecuted->sql) : $queryExecuted->sql,
+            'sql' => $this->bindings ? Str::replaceArray(
+                '?',
+                $queryExecuted->bindings,
+                $queryExecuted->sql
+            ) : $queryExecuted->sql,
             'time' => $queryExecuted->time,
             'measure_unit' => 'ms',
             'connection_name' => $queryExecuted->connectionName,

@@ -30,7 +30,7 @@ class BreadcrumbCollector implements BreadcrumbCollectorContract
         // Other collectors operate on events, and so can be conditionally made to listen. We can't do that
         // with breadcrumbs, so we check the configuration here instead and perform a NOP if we've turned
         // the collector off.
-        if ( ! $this->app['config']->get('laracatch.collectors.breadcrumbs')) {
+        if (! $this->app['config']->get('laracatch.collectors.breadcrumbs')) {
             return;
         }
 

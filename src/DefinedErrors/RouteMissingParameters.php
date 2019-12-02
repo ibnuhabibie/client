@@ -17,7 +17,7 @@ class RouteMissingParameters implements DefinedErrorContract
      */
     public function match(Throwable $error): bool
     {
-        if ( ! $error instanceof UrlGenerationException) {
+        if (! $error instanceof UrlGenerationException) {
             return false;
         }
 

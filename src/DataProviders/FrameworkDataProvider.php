@@ -20,7 +20,11 @@ class FrameworkDataProvider implements DataProviderContract
      */
     public function handle(ErrorModel $errorModel, Application $app, Throwable $throwable = null)
     {
-        $errorModel->setContextFrameworkData($app->version(), $app->getLocale(), $app->configurationIsCached(),
-            phpversion());
+        $errorModel->setContextFrameworkData(
+            $app->version(),
+            $app->getLocale(),
+            $app->configurationIsCached(),
+            phpversion()
+        );
     }
 }

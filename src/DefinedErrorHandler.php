@@ -6,18 +6,18 @@ use Illuminate\Contracts\Foundation\Application;
 use Laracatch\Client\Contracts\DefinedErrorContract;
 use Laracatch\Client\Contracts\DefinedErrorHandlerContract;
 use Laracatch\Client\Contracts\SolutionContract;
-use Laracatch\Client\DefinedErrors\{DatabaseAccessDeniedError,
-    DatabaseMissingField,
-    DatabaseMissingTable,
-    EncryptionKeyNotSpecifiedError,
-    RouteMissingParameters,
-    RouteNameNotDefined,
-    RouteMethodNotAllowed,
-    ViewExceptionMissingQuoteClose,
-    ViewExceptionMissingVariable,
-    RuntimeEncryptionUnsupported,
-    UnboundInterface,
-    ViewMissing};
+use Laracatch\Client\DefinedErrors\DatabaseAccessDeniedError;
+use Laracatch\Client\DefinedErrors\DatabaseMissingField;
+use Laracatch\Client\DefinedErrors\DatabaseMissingTable;
+use Laracatch\Client\DefinedErrors\EncryptionKeyNotSpecifiedError;
+use Laracatch\Client\DefinedErrors\RouteMissingParameters;
+use Laracatch\Client\DefinedErrors\RouteNameNotDefined;
+use Laracatch\Client\DefinedErrors\RouteMethodNotAllowed;
+use Laracatch\Client\DefinedErrors\ViewExceptionMissingQuoteClose;
+use Laracatch\Client\DefinedErrors\ViewExceptionMissingVariable;
+use Laracatch\Client\DefinedErrors\RuntimeEncryptionUnsupported;
+use Laracatch\Client\DefinedErrors\UnboundInterface;
+use Laracatch\Client\DefinedErrors\ViewMissing;
 use Throwable;
 
 class DefinedErrorHandler implements DefinedErrorHandlerContract

@@ -24,8 +24,11 @@ class ErrorPageComposer
 
         $view->with('telescopeUrl', TelescopeUrl::get());
 
-        $view->with('laracatch_src', file_get_contents(
-                __DIR__ . "/../../resources/compiled/laracatcher.js")
+        $view->with(
+            'laracatch_src',
+            file_get_contents(
+            __DIR__ . "/../../resources/compiled/laracatcher.js"
+        )
         );
     }
 }

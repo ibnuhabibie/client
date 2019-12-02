@@ -204,7 +204,9 @@ class ErrorModel implements Arrayable
      */
     public function toJson()
     {
-        return json_encode($this->data,
-            JSON_PARTIAL_OUTPUT_ON_ERROR | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT);
+        return json_encode(
+            $this->data,
+            JSON_PARTIAL_OUTPUT_ON_ERROR | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT
+        );
     }
 }

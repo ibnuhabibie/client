@@ -16,9 +16,9 @@ class DumpCollectionHandlerGroup
      */
     public function dump($value): void
     {
-       foreach ($this->handlers as $handler)  {
-           $handler($value);
-       }
+        foreach ($this->handlers as $handler) {
+            $handler($value);
+        }
     }
 
     /**

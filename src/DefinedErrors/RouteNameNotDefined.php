@@ -17,7 +17,7 @@ class RouteNameNotDefined implements DefinedErrorContract
      */
     public function match(Throwable $error): bool
     {
-        if ( ! $error instanceof RouteNotFoundException) {
+        if (! $error instanceof RouteNotFoundException) {
             return false;
         }
 

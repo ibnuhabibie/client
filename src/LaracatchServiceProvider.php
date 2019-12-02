@@ -45,7 +45,7 @@ class LaracatchServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ( ! $this->app['config']->get('laracatch.enabled')) {
+        if (! $this->app['config']->get('laracatch.enabled')) {
             return;
         }
 
@@ -89,7 +89,7 @@ class LaracatchServiceProvider extends ServiceProvider
         $this->app->view->composer('laracatch::errorPage', ErrorPageComposer::class);
         $this->app->view->composer('laracatch::navigator', NavigatorPageComposer::class);
 
-        if ( ! $this->app->runningInConsole()) {
+        if (! $this->app->runningInConsole()) {
             $this->bindRoutes();
         }
     }
@@ -102,7 +102,7 @@ class LaracatchServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laracatch');
         $this->mergeConfigFrom(__DIR__ . '/../config/laracatch.php', 'laracatch');
 
-        if ( ! $this->app['config']->get('laracatch.enabled')) {
+        if (! $this->app['config']->get('laracatch.enabled')) {
             return;
         }
 
@@ -320,7 +320,7 @@ class LaracatchServiceProvider extends ServiceProvider
      */
     protected function registerViewEngines(): void
     {
-        if ( ! $this->hasCustomViewEnginesRegistered()) {
+        if (! $this->hasCustomViewEnginesRegistered()) {
             return;
         }
 
@@ -343,11 +343,11 @@ class LaracatchServiceProvider extends ServiceProvider
     {
         $resolver = $this->app->make('view.engine.resolver');
 
-        if ( ! $resolver->resolve('php') instanceof PhpEngine) {
+        if (! $resolver->resolve('php') instanceof PhpEngine) {
             return false;
         }
 
-        if ( ! $resolver->resolve('blade') instanceof CompilerEngine) {
+        if (! $resolver->resolve('blade') instanceof CompilerEngine) {
             return false;
         }
 

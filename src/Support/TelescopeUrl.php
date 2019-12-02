@@ -11,11 +11,11 @@ class TelescopeUrl
     public static function get(): ?string
     {
         try {
-            if ( ! class_exists(Telescope::class)) {
+            if (! class_exists(Telescope::class)) {
                 return null;
             }
 
-            if ( ! count(Telescope::$entriesQueue)) {
+            if (! count(Telescope::$entriesQueue)) {
                 return null;
             }
 

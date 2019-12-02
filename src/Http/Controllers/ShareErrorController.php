@@ -19,8 +19,11 @@ class ShareErrorController
     public function __invoke(ShareErrorRequest $request, ShareErrorAction $shareAction)
     {
         try {
-            return $shareAction->handle(json_decode($request->get('error'), true), $request->get('tabs'),
-                $request->get('lineSelection'));
+            return $shareAction->handle(
+                json_decode($request->get('error'), true),
+                $request->get('tabs'),
+                $request->get('lineSelection')
+            );
         } catch (ShareErrorException $exception) {
             abort(500, 'Unable to share the error ' . $exception->getMessage());
         }

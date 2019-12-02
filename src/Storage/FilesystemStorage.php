@@ -42,7 +42,7 @@ class FilesystemStorage extends Storage implements StorageContract
      */
     public function save(array $data): ?string
     {
-        if ( ! $this->files->isDirectory($this->dirname)) {
+        if (! $this->files->isDirectory($this->dirname)) {
             if ($this->files->makeDirectory($this->dirname, 0777, true)) {
                 $this->files->put($this->dirname . '.gitignore', "*\n!.gitignore\n");
             } else {

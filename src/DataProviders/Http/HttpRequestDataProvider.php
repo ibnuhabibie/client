@@ -126,7 +126,7 @@ class HttpRequestDataProvider implements DataProviderContract
      */
     protected function setContextSession(ErrorModel $errorModel, Request $request)
     {
-        if ( ! $request->hasSession()) {
+        if (! $request->hasSession()) {
             return [];
         }
 
@@ -180,7 +180,7 @@ class HttpRequestDataProvider implements DataProviderContract
         /**
          * @var Route $route
          */
-        if ( ! $route = $request->route()) {
+        if (! $route = $request->route()) {
             return [];
         }
 

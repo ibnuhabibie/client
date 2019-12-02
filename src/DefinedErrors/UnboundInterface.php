@@ -17,7 +17,7 @@ class UnboundInterface implements DefinedErrorContract
      */
     public function match(Throwable $error): bool
     {
-        if ( ! $error instanceof BindingResolutionException) {
+        if (! $error instanceof BindingResolutionException) {
             return false;
         }
 

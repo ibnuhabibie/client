@@ -21,7 +21,7 @@ class Command
      */
     public function __construct(string $command)
     {
-        if ( ! in_array($command, Commands::$enumerated, true)) {
+        if (! in_array($command, Commands::$enumerated, true)) {
             throw new InvalidArgumentException('You must use one of the available git commands.');
         }
 

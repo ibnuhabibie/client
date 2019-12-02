@@ -16,8 +16,7 @@ class DatabaseAccessDeniedError implements DefinedErrorContract
      */
     public function match(Throwable $error): bool
     {
-        if ( ! $error instanceof QueryException)
-        {
+        if (! $error instanceof QueryException) {
             return false;
         }
 

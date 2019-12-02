@@ -26,12 +26,18 @@ class NavigatorPageComposer
 
         $view->with('shareEndpoint', action('\Laracatch\Client\Http\Controllers\ShareErrorController'));
 
-        $view->with('laracatch_src', file_get_contents(
-                __DIR__ . "/../../resources/compiled/laracatcher.js")
+        $view->with(
+            'laracatch_src',
+            file_get_contents(
+            __DIR__ . "/../../resources/compiled/laracatcher.js"
+        )
         );
 
-        $view->with('navigate_src', file_get_contents(
-                __DIR__ . "/../../resources/compiled/navigate.js")
+        $view->with(
+            'navigate_src',
+            file_get_contents(
+            __DIR__ . "/../../resources/compiled/navigate.js"
+        )
         );
     }
 }

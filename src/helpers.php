@@ -1,7 +1,8 @@
 <?php
 
 if (! function_exists('ddd')) {
-    function ddd() {
+    function ddd()
+    {
         dump(...func_get_args());
 
         /**

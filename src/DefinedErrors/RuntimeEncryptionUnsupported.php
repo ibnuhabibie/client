@@ -17,12 +17,14 @@ class RuntimeEncryptionUnsupported implements DefinedErrorContract
      */
     public function match(Throwable $error): bool
     {
-        if ( ! $error instanceof RuntimeException) {
+        if (! $error instanceof RuntimeException) {
             return false;
         }
 
-        return Str::contains($error->getMessage(),
-            'The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key lengths');
+        return Str::contains(
+            $error->getMessage(),
+            'The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key lengths'
+        );
     }
 
     /**

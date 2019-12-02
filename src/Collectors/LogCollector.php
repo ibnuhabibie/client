@@ -62,11 +62,11 @@ class LogCollector implements LogCollectorContract
      */
     protected function shouldIgnore($event)
     {
-        if ( ! isset($event->context['exception'])) {
+        if (! isset($event->context['exception'])) {
             return false;
         }
 
-        if ( ! $event->context['exception'] instanceof Exception) {
+        if (! $event->context['exception'] instanceof Exception) {
             return false;
         }
 

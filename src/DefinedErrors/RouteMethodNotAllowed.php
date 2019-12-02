@@ -18,7 +18,7 @@ class RouteMethodNotAllowed implements DefinedErrorContract
      */
     public function match(Throwable $error): bool
     {
-        if ( ! $error instanceof MethodNotAllowedHttpException) {
+        if (! $error instanceof MethodNotAllowedHttpException) {
             return false;
         }
 

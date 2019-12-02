@@ -20,13 +20,11 @@ class ViewDataProvider implements DataProviderContract
      */
     public function handle(ErrorModel $errorModel, Application $app, Throwable $throwable = null)
     {
-        if ( ! $throwable instanceof ViewException)
-        {
+        if (! $throwable instanceof ViewException) {
             return;
         }
 
-        if ( ! $app['config']->get('laracatch.data_providers.report_view_data'))
-        {
+        if (! $app['config']->get('laracatch.data_providers.report_view_data')) {
             return;
         }
 

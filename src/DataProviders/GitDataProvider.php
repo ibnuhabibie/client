@@ -23,7 +23,7 @@ class GitDataProvider implements DataProviderContract
      */
     public function handle(ErrorModel $errorModel, Application $app, Throwable $throwable = null)
     {
-        if ( ! $app['config']->get('laracatch.data_providers.collect_git_information')) {
+        if (! $app['config']->get('laracatch.data_providers.collect_git_information')) {
             return;
         }
 

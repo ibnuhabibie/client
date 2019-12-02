@@ -18,7 +18,7 @@ trait ImplementsFiltering
             $field = Arr::first(explode('.', $key));
             $operator = Arr::last(explode('.', $key)) === $field ? '=' : Arr::last(explode('.', $key));
 
-            if ( ! isset($data[$field]) || ! $this->compare($data[$field], $operator, $value)) {
+            if (! isset($data[$field]) || ! $this->compare($data[$field], $operator, $value)) {
                 return false;
             }
         }

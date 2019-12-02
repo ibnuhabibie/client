@@ -16,7 +16,7 @@ class EncryptionKeyNotSpecifiedError implements DefinedErrorContract
      */
     public function match(Throwable $error): bool
     {
-        if ( ! $error instanceof RuntimeException) {
+        if (! $error instanceof RuntimeException) {
             return false;
         }
 

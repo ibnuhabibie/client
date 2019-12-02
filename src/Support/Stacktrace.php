@@ -42,8 +42,11 @@ class Stacktrace
     {
         $localRoot = $app['config']->get('laracatch.file_paths.local');
 
-        return (new static($app->basePath(), $localRoot))->stackTraceToArray($throwable->getTrace(), $throwable->getFile(),
-            $throwable->getLine());
+        return (new static($app->basePath(), $localRoot))->stackTraceToArray(
+            $throwable->getTrace(),
+            $throwable->getFile(),
+            $throwable->getLine()
+        );
     }
 
     /**
@@ -159,7 +162,7 @@ class Stacktrace
      */
     protected function stackTrackTypeToString(array $trace): string
     {
-        if ( ! isset($trace['type'])) {
+        if (! isset($trace['type'])) {
             return 'function';
         }
 
@@ -185,7 +188,7 @@ class Stacktrace
     {
         $params = [];
 
-        if ( ! isset($trace['args'])) {
+        if (! isset($trace['args'])) {
             return $params;
         }
 
@@ -205,11 +208,11 @@ class Stacktrace
      */
     protected function getStackTraceFile(?string $file = null): ?string
     {
-        if ( ! $file) {
+        if (! $file) {
             return null;
         }
 
-        if ( ! $this->localRoot) {
+        if (! $this->localRoot) {
             return $file;
         }
 
@@ -227,7 +230,7 @@ class Stacktrace
      */
     protected function getStackTraceRelativeFile(?string $file): ?string
     {
-        if ( ! $file) {
+        if (! $file) {
             return null;
         }
 
@@ -258,7 +261,7 @@ class Stacktrace
      */
     public function getCode(string $path = null, int $line = null, $linesAround = 10)
     {
-        if ( ! $path || ! $line) {
+        if (! $path || ! $line) {
             return;
         }
 

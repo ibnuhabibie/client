@@ -17,7 +17,7 @@ class ViewMissing implements DefinedErrorContract
      */
     public function match(Throwable $error): bool
     {
-        if ( ! $error instanceof InvalidArgumentException) {
+        if (! $error instanceof InvalidArgumentException) {
             return false;
         }
 

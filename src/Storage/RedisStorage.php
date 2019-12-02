@@ -53,7 +53,7 @@ class RedisStorage extends Storage implements StorageContract
     {
         $data = $this->redis->hget("$this->hash:data", $id);
 
-        if ( ! $data) {
+        if (! $data) {
             return null;
         }
 

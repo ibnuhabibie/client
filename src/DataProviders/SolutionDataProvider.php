@@ -33,8 +33,7 @@ class SolutionDataProvider implements DataProviderContract
      */
     public function handle(ErrorModel $errorModel, Application $app, Throwable $throwable = null)
     {
-        if ( ! $throwable)
-        {
+        if (! $throwable) {
             return;
         }
 

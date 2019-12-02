@@ -17,7 +17,7 @@ class ViewExceptionMissingQuoteClose implements DefinedErrorContract
      */
     public function match(Throwable $error): bool
     {
-        if ( ! $error instanceof ViewException) {
+        if (! $error instanceof ViewException) {
             return false;
         }
 

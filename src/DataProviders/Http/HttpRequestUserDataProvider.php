@@ -38,7 +38,7 @@ class HttpRequestUserDataProvider implements DataProviderContract
     {
         $user = $request->user();
 
-        if ( ! $user) {
+        if (! $user) {
             return [];
         }
 
