@@ -100,7 +100,7 @@ return [
 
     'data_providers' => [
         'anonymize_client_ip' => false,
-        'collect_git_information' => true,
+        'collect_git_information' => false,
         'report_query_bindings' => true,
         'report_view_data' => true,
     ],
