@@ -5,6 +5,7 @@ namespace Laracatch\Client\Tests\DataProviders\Http;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use Laracatch\Client\DataProviders\Http\HttpRequestDataProvider;
 use Laracatch\Client\Handler\Context\RequestContext;
@@ -160,7 +161,7 @@ class HttpRequestDataProviderTest extends TestCase
         $files = [
             'file-one' => new UploadedFile(
                 tap($this->path . 'file1.txt', function ($path) {
-                    $this->filesystem->put($path, str_random());
+                    $this->filesystem->put($path, Str::random());
                 }),
                 'file-name.txt',
                 'text/plain',
@@ -168,7 +169,7 @@ class HttpRequestDataProviderTest extends TestCase
             ),
             'file-two' => new UploadedFile(
                 tap($this->path . 'file2.txt', function ($path) {
-                    $this->filesystem->put($path, str_random());
+                    $this->filesystem->put($path, Str::random());
                 }),
                 'file-name.txt',
                 'text/plain',
