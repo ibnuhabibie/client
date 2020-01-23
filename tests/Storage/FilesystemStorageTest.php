@@ -4,6 +4,7 @@ namespace Laracatch\Client\Tests\Handler\Storage;
 
 use Carbon\Carbon;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 use Laracatch\Client\Storage\FilesystemStorage;
 use Laracatch\Client\Tests\TestCase;
 
@@ -27,7 +28,7 @@ class FilesystemStorageTest extends TestCase
     /** @test */
     public function it_should_create_the_filename_based_on_the_id()
     {
-        $id = str_random();
+        $id = Str::random();
 
         $fullpath = $this->path . $id . '.json';
 
