@@ -12,12 +12,12 @@ class GitCollector implements GitCollectorContract
 
     /** @var array */
     protected $gitInformation = [
-        'isInitialized' => null,
+        'is_initialized' => null,
         'hash' => null,
         'message' => null,
         'tag' => null,
         'remote' => null,
-        'isDirty' => null
+        'is_dirty' => null
     ];
 
     public function __construct(Application $app)
@@ -33,12 +33,12 @@ class GitCollector implements GitCollectorContract
     public function collect(): void
     {
         $this->gitInformation = [
-            'isInitialized' => $this->isInitialized(),
+            'is_initialized' => $this->isInitialized(),
             'hash' => $this->getHash(),
             'message' => $this->getMessage(),
             'tag' => $this->getTag(),
             'remote' => $this->getRemote(),
-            'isDirty' => $this->getIsDirty()
+            'is_dirty' => $this->getIsDirty()
         ];
     }
 
