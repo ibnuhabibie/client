@@ -53,35 +53,42 @@ class LaracatchServiceProvider extends ServiceProvider
             $this->publishes([__DIR__ . '/../config/laracatch.php' => config_path('laracatch.php')], 'config');
         }
 
-        if ($queriesActive = $this->app['config']->get('laracatch.collectors.queries')) {
-            $this->app->make(QueryCollectorContract::class)->listen();
+        if ($this->app['config']->get('laracatch.collectors.dumps')) {
+            $this->app->make(DumpCollectorContract::class)->listen();
         }
 
-        if ($logsActive = $this->app['config']->get('laracatch.collectors.logs')) {
+        if ($this->app['config']->get('laracatch.collectors.logs')) {
             $this->app->make(LogCollectorContract::class)->listen();
         }
 
-        if ($eventsActive = $this->app['config']->get('laracatch.collectors.events')) {
+        if ($this->app['config']->get('laracatch.collectors.queries')) {
+            $this->app->make(QueryCollectorContract::class)->listen();
+        }
+
+        if ($this->app['config']->get('laracatch.collectors.events')) {
             $this->app->make(EventCollectorContract::class)->listen();
         }
 
         $this->registerViewEngines();
 
-        $this->app->make(QueryCollectorContract::class)->listen();
-        $this->app->make(LogCollectorContract::class)->listen();
-        $this->app->make(EventCollectorContract::class)->listen();
-        $this->app->make(DumpCollectorContract::class)->listen();
-
-        $this->app->queue->looping(function () use ($queriesActive, $logsActive, $eventsActive) {
-            if ($queriesActive) {
-                $this->app->make(QueryCollectorContract::class)->reset();
+        $this->app->queue->looping(function () {
+            if ($this->app['config']->get('laracatch.collectors.dumps')) {
+                $this->app->make(DumpCollectorContract::class)->reset();
             }
 
-            if ($logsActive) {
+            if ($this->app['config']->get('laracatch.collectors.breadcrumbs')) {
+                $this->app->make(BreadcrumbCollector::class)->reset();
+            }
+
+            if ($this->app['config']->get('laracatch.collectors.logs')) {
                 $this->app->make(LogCollectorContract::class)->reset();
             }
 
-            if ($eventsActive) {
+            if ($this->app['config']->get('laracatch.collectors.queries')) {
+                $this->app->make(QueryCollectorContract::class)->reset();
+            }
+
+            if ($this->app['config']->get('laracatch.collectors.events')) {
                 $this->app->make(EventCollectorContract::class)->reset();
             }
         });
