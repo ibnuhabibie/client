@@ -43,6 +43,10 @@ If you wish to configure Laracatch you may publish the configuration file, which
 php artisan vendor:publish --provider="Laracatch\Client\LaracatchServiceProvider"
 ```
 
+#### Disabled Environments
+
+Laracatch by default is disabled in `testing` environment. You can adjust this value by changing the `disabled_environments` array in the configuration. This value has precedence over the next configuration value.
+
 #### Disabling Laracatch
 
 By default, Laracatch is enabled only when the `debug` key in `config/app.php` is set to `true`.

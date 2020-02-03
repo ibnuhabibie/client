@@ -3,7 +3,7 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Unallowed Environments
+    | Disabled Environments
     |--------------------------------------------------------------------------
     |
     | Environments where Laracatch is disabled. This value
@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'unallowed_environments' => ['testing'],
+    'disabled_environments' => ['testing'],
 
     /*
     |--------------------------------------------------------------------------

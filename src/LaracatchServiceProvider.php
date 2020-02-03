@@ -131,7 +131,7 @@ class LaracatchServiceProvider extends ServiceProvider
      */
     protected function isEnabled(): bool
     {
-        if (in_array($this->app->environment(), $this->app['config']->get('laracatch.unallowed_environments', []))) {
+        if (in_array($this->app->environment(), $this->app['config']->get('laracatch.disabled_environments', []))) {
             return false;
         }
 
