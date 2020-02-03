@@ -131,10 +131,8 @@ class LaracatchServiceProvider extends ServiceProvider
      */
     protected function isEnabled(): bool
     {
-        // enable the component during testing
-        // only if we are running our tests
-        if ($this->app->environment('testing')) {
-            return $this->app['config']->get('laracatch.testing_enabled', false);
+        if (in_array($this->app->environment(), $this->app['config']->get('laracatch.unallowed_environments', []))) {
+            return false;
         }
 
         $enabled = $this->app['config']->get('laracatch.enabled');

@@ -3,6 +3,18 @@
 return [
     /*
     |--------------------------------------------------------------------------
+    | Unallowed Environments
+    |--------------------------------------------------------------------------
+    |
+    | Environments where Laracatch is disabled. This value
+    | has precedence over the enabled value below.
+    |
+    */
+
+    'unallowed_environments' => ['testing'],
+
+    /*
+    |--------------------------------------------------------------------------
     | Laracatch Settings
     |--------------------------------------------------------------------------
     |

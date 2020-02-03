@@ -34,7 +34,8 @@ class TestCase extends \Orchestra\Testbench\TestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('laracatch.testing_enabled', true);
+        $app['config']->set('laracatch.unallowed_environments', []);
+        $app['config']->set('laracatch.enabled', true);
     }
 
     protected function createRequest(
