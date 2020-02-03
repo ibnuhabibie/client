@@ -45,7 +45,7 @@ class LaracatchServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (! $this->app['config']->get('laracatch.enabled')) {
+        if (! $this->isEnabled()) {
             return;
         }
 
@@ -109,10 +109,6 @@ class LaracatchServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laracatch');
         $this->mergeConfigFrom(__DIR__ . '/../config/laracatch.php', 'laracatch');
 
-        if (! $this->app['config']->get('laracatch.enabled')) {
-            return;
-        }
-
         $this->registerHandler();
         $this->registerDataProvider();
         $this->registerDefinedErrorHandler();
@@ -126,6 +122,28 @@ class LaracatchServiceProvider extends ServiceProvider
             $this->registerRecorder();
             $this->registerCommands();
         }
+    }
+
+    /**
+     * Determine if the package is enabled.
+     *
+     * @return bool
+     */
+    protected function isEnabled(): bool
+    {
+        // enable the component during testing
+        // only if we are running our tests
+        if ($this->app->environment('testing')) {
+            return $this->app['config']->get('laracatch.testing_enabled', false);
+        }
+
+        $enabled = $this->app['config']->get('laracatch.enabled');
+
+        if (is_null($enabled)) {
+            $enabled = $this->app['config']->get('app.debug');
+        }
+
+        return $enabled;
     }
 
     /**

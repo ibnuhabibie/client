@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'enabled' => env('LARACATCH_ENABLED', true),
+    'enabled' => env('LARACATCH_ENABLED', null),
 
     /*
     |--------------------------------------------------------------------------

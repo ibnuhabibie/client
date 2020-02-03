@@ -26,6 +26,17 @@ class TestCase extends \Orchestra\Testbench\TestCase
         return [LaracatchServiceProvider::class];
     }
 
+    /**
+     * Define environment setup.
+     *
+     * @param  \Illuminate\Foundation\Application  $app
+     * @return void
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('laracatch.testing_enabled', true);
+    }
+
     protected function createRequest(
         $method,
         $uri,
