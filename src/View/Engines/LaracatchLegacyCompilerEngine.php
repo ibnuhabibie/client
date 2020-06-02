@@ -2,15 +2,14 @@
 
 namespace Laracatch\Client\View\Engines;
 
+use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\View\Engines\CompilerEngine;
 use Laracatch\Client\Exceptions\ViewException;
 use Laracatch\Client\Traits\GathersViewExceptionData;
-use ReflectionException;
 use ReflectionProperty;
-use Throwable;
 
-class LaracatchCompilerEngine extends CompilerEngine
+class LaracatchLegacyCompilerEngine extends CompilerEngine
 {
     use GathersViewExceptionData;
 
@@ -32,13 +31,13 @@ class LaracatchCompilerEngine extends CompilerEngine
     /**
      * Handle a view exception.
      *
-     * @param Throwable $originalException
+     * @param Exception $originalException
      * @param int $obLevel
      *
      * @return void
-     * @throws Throwable
+     * @throws \Exception
      */
-    protected function handleViewException(Throwable $originalException, $obLevel)
+    protected function handleViewException(Exception $originalException, $obLevel)
     {
         while (ob_get_level() > $obLevel) {
             ob_end_clean();
@@ -68,11 +67,11 @@ class LaracatchCompilerEngine extends CompilerEngine
     /**
      * Update StackTrace to account for the Blade view.
      *
-     * @param Throwable $exception
+     * @param Exception $exception
      *
-     * @throws ReflectionException
+     * @throws \ReflectionException
      */
-    protected function modifyViewsInTrace(Throwable $exception)
+    protected function modifyViewsInTrace(Exception $exception)
     {
         $trace = array_map(function ($trace) {
             if ($compiledView = $this->findByCompiledPath(Arr::get($trace, 'file', ''))) {

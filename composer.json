@@ -35,21 +35,21 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "filp/whoops": "^2.4",
-        "illuminate/pipeline": "~5.5|~5.6|~5.7|~5.8|^6.0",
-        "illuminate/support": "~5.5.0 || ~5.6.0 || ~5.7.0 || ~5.8.0 || ^6.0",
+        "illuminate/pipeline": "~5.5|~5.6|~5.7|~5.8|^6.0|^7.0",
+        "illuminate/support": "~5.5.0 || ~5.6.0 || ~5.7.0 || ~5.8.0 || ^6.0 || ^7.0",
         "monolog/monolog": "^1.12 || ^2.0",
         "psr/log": "^1.1",
         "scrivo/highlight.php": "^9.15",
-        "symfony/console": "^3.4 || ^4.0",
-        "symfony/http-foundation": "~3.4|~4.3",
-        "symfony/var-dumper": "^3.4 || ^4.0"
+        "symfony/console": "^3.4 || ^4.0 || ^5.0",
+        "symfony/http-foundation": "~3.4|~4.3|^5.0",
+        "symfony/var-dumper": "^3.4 || ^4.0 || ^5.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
         "friendsofphp/php-cs-fixer": "^2.14",
         "larapack/dd": "^1.1",
         "mockery/mockery": "^1.2",
-        "orchestra/testbench": "^3.5 || ^3.6 || ^3.7 || ^3.8 || ^4.0",
+        "orchestra/testbench": "^3.5 || ^3.6 || ^3.7 || ^3.8 || ^4.0 || ^5.0",
         "phpunit/phpunit": "^8.0",
         "spatie/phpunit-snapshot-assertions": "^2.2"
     },
