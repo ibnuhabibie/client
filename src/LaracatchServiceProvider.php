@@ -2,9 +2,10 @@
 
 namespace Laracatch\Client;
 
-use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Foundation\Application;
 use Illuminate\Redis\RedisServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Engines\PhpEngine;
 use Laracatch\Client\Client\Client;
@@ -25,14 +26,12 @@ use Laracatch\Client\Contracts\LogCollectorContract;
 use Laracatch\Client\Contracts\QueryCollectorContract;
 use Laracatch\Client\Contracts\StorageContract;
 use Laracatch\Client\Facades\Laracatch as LaracatchFacade;
-use Laracatch\Client\Http\Controllers\ErrorApiController;
-use Laracatch\Client\Http\Controllers\NavigatorController;
-use Laracatch\Client\Http\Controllers\ShareErrorController;
 use Laracatch\Client\Http\Middleware\LaracatchEnabled;
 use Laracatch\Client\Storage\FilesystemStorage;
 use Laracatch\Client\Storage\PdoStorage;
 use Laracatch\Client\Storage\RedisStorage;
 use Laracatch\Client\View\Engines\LaracatchCompilerEngine;
+use Laracatch\Client\View\Engines\LaracatchLegacyCompilerEngine;
 use Laracatch\Client\View\Engines\LaracatchPhpEngine;
 use Laracatch\Client\ViewComposers\ErrorPageComposer;
 use Laracatch\Client\ViewComposers\NavigatorPageComposer;
@@ -336,6 +335,10 @@ class LaracatchServiceProvider extends ServiceProvider
         });
 
         $this->app->make('view.engine.resolver')->register('blade', function () {
+            if ($this->detectLaravelVersion(['5', '6'])) {
+                return new LaracatchLegacyCompilerEngine($this->app['blade.compiler']);
+            }
+
             return new LaracatchCompilerEngine($this->app['blade.compiler']);
         });
     }
@@ -369,5 +372,13 @@ class LaracatchServiceProvider extends ServiceProvider
         $this->app->bind('command.laracatch:clear', ClearCommand::class);
 
         $this->commands(['command.laracatch:clear']);
+    }
+
+    /**
+     * Determine what version of Laravel we're dealing with.
+     */
+    protected function detectLaravelVersion(array $versions): bool
+    {
+        return Str::startsWith(Application::VERSION, $versions);
     }
 }
